@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.macaela.api.user.DatosRegistroUsuario;
-import com.macaela.api.user.User;
-import com.macaela.api.user.UserRepository;
+import com.macaela.api.models.user.DatosRegistroUsuario;
+import com.macaela.api.models.user.User;
+import com.macaela.api.models.user.UserRepository;
 
 
 @RestController
