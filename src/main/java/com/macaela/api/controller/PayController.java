@@ -6,22 +6,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.macaela.api.models.user.DatosRegistroUsuario;
+import com.macaela.api.models.pay.DatosRegistroPago;
+import com.macaela.api.models.pay.Pay;
 import com.macaela.api.models.user.User;
+import com.macaela.api.repository.PayRepository;
 import com.macaela.api.repository.UserRepository;
 
-
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/pay")
+public class PayController {
 
 	//con esta anotacion tendras problemas en pruebas unitarias
 	@Autowired
-	private UserRepository userRepository;
+	private PayRepository payRepository;
 	
 	@PostMapping
-	public void registrarUsuario(@RequestBody DatosRegistroUsuario datosRegistroUsuario) {
-		userRepository.save(new User(datosRegistroUsuario));
-		System.out.println(datosRegistroUsuario);
+	public void registrarPago(@RequestBody DatosRegistroPago datosRegistroPago) {
+		payRepository.save(new Pay(datosRegistroPago));
+		System.out.println(datosRegistroPago);
 	}
 }

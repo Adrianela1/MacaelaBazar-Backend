@@ -41,7 +41,7 @@ public class User {
 	@Column(name = "customer_bankaccount" )
 	private int bankaccount;
 	@Column(name = "customer_description_page" )
-	private String descriptionPáge;
+	private String descriptionPage;
 	@Column(name = "customer_name_page" )
 	private String namePage;
 	
