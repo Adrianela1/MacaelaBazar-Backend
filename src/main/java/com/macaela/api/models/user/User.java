@@ -37,7 +37,7 @@ public class User {
 	@Column(name = "is_administrator")
 	private boolean administrator;
 	@Column(name = "customer_banner" )
-	private byte banner;
+	private String banner;
 	@Column(name = "customer_bankaccount" )
 	private int bankaccount;
 	@Column(name = "customer_description_page" )
@@ -57,5 +57,21 @@ public class User {
 		
 	}
 	
+	public User ( ) {
+		
+	}
+	
+	
+	public void actualizarPagina(DatosRegistroPagina datosRegistroPagina) {
+		if(datosRegistroPagina.banner() != null) {
+			this.banner = datosRegistroPagina.banner();
+		}
+		if(datosRegistroPagina.descriptionPage() != null) {
+			this.descriptionPage = datosRegistroPagina.descriptionPage();
+		}
+		if(datosRegistroPagina.namePage() != null) {
+			this.namePage = datosRegistroPagina.namePage();
+		}
+	}
 	
 }

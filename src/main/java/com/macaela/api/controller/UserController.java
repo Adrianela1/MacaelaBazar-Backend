@@ -2,13 +2,18 @@ package com.macaela.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.macaela.api.models.user.DatosRegistroPagina;
 import com.macaela.api.models.user.DatosRegistroUsuario;
 import com.macaela.api.models.user.User;
 import com.macaela.api.repository.UserRepository;
+
+import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -23,5 +28,14 @@ public class UserController {
 	public void registrarUsuario(@RequestBody DatosRegistroUsuario datosRegistroUsuario) {
 		userRepository.save(new User(datosRegistroUsuario));
 		System.out.println(datosRegistroUsuario);
+			
+		}
+	
+	@PutMapping
+	@Transactional
+	public void actualizarPagina(@RequestBody @Valid DatosRegistroPagina datosRegistroPagina) {
+		User user = userRepository.getReferenceById(datosRegistroPagina.id());
+		user.actualizarPagina(datosRegistroPagina);
 	}
 }
+
