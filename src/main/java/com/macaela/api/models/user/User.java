@@ -46,6 +46,31 @@ public class User {
 	private String namePage;
 	
 	
+
+	public String getBanner() {
+		return banner;
+	}
+
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getDescriptionPage() {
+		return descriptionPage;
+	}
+
+	public void setDescriptionPage(String descriptionPage) {
+		this.descriptionPage = descriptionPage;
+	}
+
+	public String getNamePage() {
+		return namePage;
+	}
+
+	public void setNamePage(String namePage) {
+		this.namePage = namePage;
+	}
+
 	
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 		this.fullname = datosRegistroUsuario.name();
@@ -57,8 +82,7 @@ public class User {
 		
 	}
 	
-	public User ( ) {
-		
+	public User () {
 	}
 	
 	
@@ -74,4 +98,5 @@ public class User {
 		}
 	}
 	
+
 }
