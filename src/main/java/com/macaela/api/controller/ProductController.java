@@ -64,7 +64,7 @@ public class ProductController {
     }
 
     // Endpoint para obtener todos los productos
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<DatosObtenerProductos>> getAllProducts() {
         List<Product> products = productRepository.findAll();
         List<DatosObtenerProductos> productDTOs = products.stream()
