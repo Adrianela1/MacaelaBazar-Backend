@@ -17,18 +17,18 @@ import com.macaela.api.models.user.DatosRegistroUsuario;
 import com.macaela.api.models.user.User;
 import com.macaela.api.repository.UserRepository;
 
+
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-	//con esta anotacion tendras problemas en pruebas unitarias
+	// con esta anotacion tendras problemas en pruebas unitarias
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@PostMapping
 	public void registrarUsuario(@RequestBody DatosRegistroUsuario datosRegistroUsuario) {
 		userRepository.save(new User(datosRegistroUsuario));
