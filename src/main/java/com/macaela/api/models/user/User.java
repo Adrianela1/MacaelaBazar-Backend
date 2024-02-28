@@ -48,7 +48,30 @@ public class User {
 	private String descriptionPáge;
 	@Column(name = "customer_name_page")
 	private String namePage;
+  
+public String getBanner() {
+		return banner;
+	}
 
+	public void setBanner(String banner) {
+		this.banner = banner;
+	}
+
+	public String getDescriptionPage() {
+		return descriptionPage;
+	}
+
+	public void setDescriptionPage(String descriptionPage) {
+		this.descriptionPage = descriptionPage;
+	}
+
+	public String getNamePage() {
+		return namePage;
+	}
+
+	public void setNamePage(String namePage) {
+		this.namePage = namePage;
+	}
 	public void setUserId(Long id) {
 		this.id = id;
 	}
@@ -56,6 +79,7 @@ public class User {
 	// Relaciones
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
+
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 		this.fullname = datosRegistroUsuario.name();
@@ -70,5 +94,24 @@ public class User {
 	public Long getId() {
 		return this.id;
 	}
+
+	
+	public User () {
+	}
+	
+	
+	public void actualizarPagina(DatosRegistroPagina datosRegistroPagina) {
+		if(datosRegistroPagina.banner() != null) {
+			this.banner = datosRegistroPagina.banner();
+		}
+		if(datosRegistroPagina.descriptionPage() != null) {
+			this.descriptionPage = datosRegistroPagina.descriptionPage();
+		}
+		if(datosRegistroPagina.namePage() != null) {
+			this.namePage = datosRegistroPagina.namePage();
+		}
+	}
+	
+
 
 }

@@ -6,5 +6,8 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/macaela
 
         username: root
-        password: minimei13
 
+        password: minimei13
+server:
+  error:
+   include-stacktrace: never
