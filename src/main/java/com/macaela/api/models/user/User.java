@@ -41,15 +41,15 @@ public class User {
 	@Column(name = "is_administrator")
 	private boolean administrator;
 	@Column(name = "customer_banner")
-	private byte banner;
+	private String banner;
 	@Column(name = "customer_bankaccount")
 	private int bankaccount;
 	@Column(name = "customer_description_page")
-	private String descriptionPáge;
+	private String descriptionPage;
 	@Column(name = "customer_name_page")
 	private String namePage;
-  
-public String getBanner() {
+
+	public String getBanner() {
 		return banner;
 	}
 
@@ -72,6 +72,7 @@ public String getBanner() {
 	public void setNamePage(String namePage) {
 		this.namePage = namePage;
 	}
+
 	public void setUserId(Long id) {
 		this.id = id;
 	}
@@ -79,7 +80,6 @@ public String getBanner() {
 	// Relaciones
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
-
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 		this.fullname = datosRegistroUsuario.name();
@@ -95,23 +95,16 @@ public String getBanner() {
 		return this.id;
 	}
 
-	
-	public User () {
-	}
-	
-	
 	public void actualizarPagina(DatosRegistroPagina datosRegistroPagina) {
-		if(datosRegistroPagina.banner() != null) {
+		if (datosRegistroPagina.banner() != null) {
 			this.banner = datosRegistroPagina.banner();
 		}
-		if(datosRegistroPagina.descriptionPage() != null) {
+		if (datosRegistroPagina.descriptionPage() != null) {
 			this.descriptionPage = datosRegistroPagina.descriptionPage();
 		}
-		if(datosRegistroPagina.namePage() != null) {
+		if (datosRegistroPagina.namePage() != null) {
 			this.namePage = datosRegistroPagina.namePage();
 		}
 	}
-	
-
 
 }
