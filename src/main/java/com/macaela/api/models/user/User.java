@@ -41,11 +41,11 @@ public class User {
 	@Column(name = "is_administrator")
 	private boolean administrator;
 	@Column(name = "customer_banner")
-	private byte banner;
+	private String banner;
 	@Column(name = "customer_bankaccount")
 	private int bankaccount;
 	@Column(name = "customer_description_page")
-	private String descriptionPáge;
+	private String descriptionPage;
 	@Column(name = "customer_name_page")
 	private String namePage;
   
