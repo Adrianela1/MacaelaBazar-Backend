@@ -18,10 +18,10 @@ import com.macaela.api.models.product.Product;
 
 @Table(name = "users")
 @Entity(name = "User")
-// @Getter
-// @Setter
-// @NoArgsConstructor
-// @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 // @EqualsAndHashCode(of = "id")
 public class User {
 
@@ -57,9 +57,6 @@ public class User {
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
 
-	public User() {
-	}
-
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 		this.fullname = datosRegistroUsuario.name();
 		this.email = datosRegistroUsuario.email();
@@ -68,6 +65,10 @@ public class User {
 		this.age = datosRegistroUsuario.age();
 		this.administrator = datosRegistroUsuario.administrator();
 
+	}
+
+	public Long getId() {
+		return this.id;
 	}
 
 }

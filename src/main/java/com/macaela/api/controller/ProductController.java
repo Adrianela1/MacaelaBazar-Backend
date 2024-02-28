@@ -8,6 +8,9 @@ import com.macaela.api.models.product.Product;
 import com.macaela.api.models.user.User;
 import com.macaela.api.repository.ProductRepository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +30,6 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<?> createProduct(@RequestBody DatosRegistroProducto datosRegistroProducto) {
         try {
-            // Aquí puedes realizar la lógica para mapear el DTO a una entidad Product y
-            // guardarla en la base de datos
             Product product = new Product();
             product.setCategory(datosRegistroProducto.getCategory());
             product.setColor(datosRegistroProducto.getColor());
@@ -37,17 +38,51 @@ public class ProductController {
             product.setPrice(datosRegistroProducto.getPrice());
             product.setDescription(datosRegistroProducto.getDescription());
             product.setImage(datosRegistroProducto.getImage());
-            // Aquí estableces la relación con el usuario
-            // Supongamos que tienes el ID del usuario en una variable userId
-            User user = new User();
-            user.setUserId(datosRegistroProducto.getUserId()); // Estableces el ID del usuario
-            product.setUserId(user); // Estableces la relación
 
-            productRepository.save(product); // Guardas el producto en la base de datos
+            User user = new User();
+            user.setUserId(datosRegistroProducto.getUserId());
+            product.setUserId(user);
+
+            productRepository.save(product);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(datosRegistroProducto);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el producto");
         }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosObtenerProductos> getProductById(@PathVariable("id") Long id) {
+        Product product = productRepository.findById(id)
+                .orElse(null);
+        if (product != null) {
+            DatosObtenerProductos productDTO = mapProduct(product);
+            return ResponseEntity.ok(productDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // Endpoint para obtener todos los productos
+    @GetMapping
+    public ResponseEntity<List<DatosObtenerProductos>> getAllProducts() {
+        List<Product> products = productRepository.findAll();
+        List<DatosObtenerProductos> productDTOs = products.stream()
+                .map(this::mapProduct)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(productDTOs);
+    }
+
+    private DatosObtenerProductos mapProduct(Product product) {
+        DatosObtenerProductos productDTO = new DatosObtenerProductos();
+        productDTO.setId(product.getId());
+        productDTO.setCategory(product.getCategory());
+        productDTO.setColor(product.getColor());
+        productDTO.setSize(product.getSize());
+        productDTO.setStock(product.getStock());
+        productDTO.setPrice(product.getPrice());
+        productDTO.setDescription(product.getDescription());
+        productDTO.setImage(product.getImage());
+        return productDTO;
     }
 }
