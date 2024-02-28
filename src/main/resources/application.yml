@@ -6,4 +6,5 @@ spring:
         url: jdbc:mysql://127.0.0.1:3306/macaela
 
         username: root
-        password: Pa$$w0rd
+        password: minimei13
+
