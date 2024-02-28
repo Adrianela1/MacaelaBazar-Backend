@@ -47,7 +47,6 @@ public class UserController {
     public ResponseEntity<?> obtenerPagina(@PathVariable("id") Long id) {
         User user = userRepository.findById(id)
                 .orElse(null);
-
         if (user != null) {
             DatosObtenerPagina datosPagina = new DatosObtenerPagina(user.getBanner(), user.getNamePage(), user.getDescriptionPage());
             return ResponseEntity.ok(datosPagina);
