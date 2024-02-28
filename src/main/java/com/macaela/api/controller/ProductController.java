@@ -38,7 +38,7 @@ public class ProductController {
             product.setPrice(datosRegistroProducto.getPrice());
             product.setDescription(datosRegistroProducto.getDescription());
             product.setImage(datosRegistroProducto.getImage());
-
+            
             User user = new User();
             user.setUserId(datosRegistroProducto.getUserId());
             product.setUserId(user);

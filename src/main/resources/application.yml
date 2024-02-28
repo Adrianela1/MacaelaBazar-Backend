@@ -7,7 +7,7 @@ spring:
 
         username: root
 
-        password: minimei13
+        password: Altecpower1
 server:
   error:
    include-stacktrace: never
