@@ -1,5 +1,7 @@
 package com.macaela.api.models.product;
 
+import java.math.BigDecimal;
+
 import com.macaela.api.models.user.User;
 
 import jakarta.persistence.Column;
@@ -7,6 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,10 +39,10 @@ public class Product {
     private String size;
 
     @Column(name = "Product_stock")
-    private int stock;
+    private Integer stock;
 
-    @Column(name = "Product_price")
-    private double price;
+    @Column(name = "Productc_price")
+    private BigDecimal price;
 
     @Column(name = "Product_description")
     private String description;
@@ -46,6 +50,12 @@ public class Product {
     @Column(name = "Product_image")
     private String image;
 
-    @Column(name = "users_User_id")
+    // Relaciones
+    @ManyToOne
+    @JoinColumn(name = "users_User_id")
     private User userId;
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
 }
