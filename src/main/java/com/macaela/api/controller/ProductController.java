@@ -123,61 +123,61 @@ public class ProductController {
             }
         }
     
-    // Método para obtener productos por tamaño
-    @GetMapping("/bySize")
-    public ResponseEntity<List<DatosObtenerProductos>> getProductsBySize(@RequestParam("size") String size) {
-        List<Product> products = productRepository.findBySize(size);
-        if (products != null && !products.isEmpty()) {
-            List<DatosObtenerProductos> productDTOs = products.stream()
-                    .map(this::mapProduct)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(productDTOs);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    // Método para obtener productos por categoría
-    @GetMapping("/byCategory")
-    public ResponseEntity<List<DatosObtenerProductos>> getProductsByCategory(@RequestParam("category") String category) {
-        List<Product> products = productRepository.findByCategory(category);
-        if (products != null && !products.isEmpty()) {
-            List<DatosObtenerProductos> productDTOs = products.stream()
-                    .map(this::mapProduct)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(productDTOs);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    // Método para obtener productos por precio menor que el valor dado
-    @GetMapping("/byPriceLessThan")
-    public ResponseEntity<List<DatosObtenerProductos>> getProductsByPriceLessThan(@RequestParam("price") BigDecimal price) {
-        List<Product> products = productRepository.findByPriceLessThan(price);
-        if (products != null && !products.isEmpty()) {
-            List<DatosObtenerProductos> productDTOs = products.stream()
-                    .map(this::mapProduct)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(productDTOs);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    // Método para obtener productos por precio mayor que el valor dado
-    @GetMapping("/byPriceGreaterThan")
-    public ResponseEntity<List<DatosObtenerProductos>> getProductsByPriceGreaterThan(@RequestParam("price") BigDecimal price) {
-        List<Product> products = productRepository.findByPriceGreaterThan(price);
-        if (products != null && !products.isEmpty()) {
-            List<DatosObtenerProductos> productDTOs = products.stream()
-                    .map(this::mapProduct)
-                    .collect(Collectors.toList());
-            return ResponseEntity.ok(productDTOs);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    // Método para obtener productos por tamaño
+//    @GetMapping("/bySize")
+//    public ResponseEntity<List<DatosObtenerProductos>> getProductsBySize(@RequestParam("size") String size) {
+//        List<Product> products = productRepository.findBySize(size);
+//        if (products != null && !products.isEmpty()) {
+//            List<DatosObtenerProductos> productDTOs = products.stream()
+//                    .map(this::mapProduct)
+//                    .collect(Collectors.toList());
+//            return ResponseEntity.ok(productDTOs);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+//
+//    // Método para obtener productos por categoría
+//    @GetMapping("/byCategory")
+//    public ResponseEntity<List<DatosObtenerProductos>> getProductsByCategory(@RequestParam("category") String category) {
+//        List<Product> products = productRepository.findByCategory(category);
+//        if (products != null && !products.isEmpty()) {
+//            List<DatosObtenerProductos> productDTOs = products.stream()
+//                    .map(this::mapProduct)
+//                    .collect(Collectors.toList());
+//            return ResponseEntity.ok(productDTOs);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+//
+//    // Método para obtener productos por precio menor que el valor dado
+//    @GetMapping("/byPriceLessThan")
+//    public ResponseEntity<List<DatosObtenerProductos>> getProductsByPriceLessThan(@RequestParam("price") BigDecimal price) {
+//        List<Product> products = productRepository.findByPriceLessThan(price);
+//        if (products != null && !products.isEmpty()) {
+//            List<DatosObtenerProductos> productDTOs = products.stream()
+//                    .map(this::mapProduct)
+//                    .collect(Collectors.toList());
+//            return ResponseEntity.ok(productDTOs);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+//
+//    // Método para obtener productos por precio mayor que el valor dado
+//    @GetMapping("/byPriceGreaterThan")
+//    public ResponseEntity<List<DatosObtenerProductos>> getProductsByPriceGreaterThan(@RequestParam("price") BigDecimal price) {
+//        List<Product> products = productRepository.findByPriceGreaterThan(price);
+//        if (products != null && !products.isEmpty()) {
+//            List<DatosObtenerProductos> productDTOs = products.stream()
+//                    .map(this::mapProduct)
+//                    .collect(Collectors.toList());
+//            return ResponseEntity.ok(productDTOs);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
     
     private DatosObtenerProductos mapProduct(Product product) {
         DatosObtenerProductos productDTO = new DatosObtenerProductos();
