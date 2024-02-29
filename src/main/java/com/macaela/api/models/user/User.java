@@ -21,6 +21,9 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.macaela.api.models.order.Orders;
 import com.macaela.api.models.product.Product;
 
 @Table(name = "users")
@@ -56,9 +59,11 @@ public class User implements UserDetails {
 	@Column(name = "customer_name_page")
 	private String namePage;
 
+		
+	public User() {
+		super();
+	}
 
-	
-	
 	public int getAge() {
 		return age;
 	}
@@ -82,6 +87,7 @@ public class User implements UserDetails {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
+
 
 
 	public String getEmail() {
@@ -127,6 +133,10 @@ public class User implements UserDetails {
 	// Relaciones
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
+
+	@OneToMany(mappedBy = "userId")
+	@JsonManagedReference
+	private Set<Orders> orders = new HashSet<>();
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 	    this.fullname = datosRegistroUsuario.getName();

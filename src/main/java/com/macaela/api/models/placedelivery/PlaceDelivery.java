@@ -1,10 +1,17 @@
 package com.macaela.api.models.placedelivery;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.macaela.api.models.order.Orders;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -42,6 +49,13 @@ public class PlaceDelivery {
 	@Column(name = "station_delivery")
 	private String station;
 
+	
+	
+	
+	public PlaceDelivery() {
+		super();
+	}
+
 	public PlaceDelivery(DatosPlaceDelivery datosPlaceDelivery) {
 
 		this.fecha = datosPlaceDelivery.fecha();
@@ -51,4 +65,8 @@ public class PlaceDelivery {
 		this.station = datosPlaceDelivery.station();
 	}
 
+	// Relaciones
+	@OneToMany(mappedBy = "placeDeliveryId")
+	@JsonManagedReference
+	private Set<Orders> orders = new HashSet<>();
 }

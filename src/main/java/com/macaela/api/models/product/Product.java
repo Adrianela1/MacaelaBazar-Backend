@@ -1,7 +1,11 @@
 package com.macaela.api.models.product;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.macaela.api.models.order.Orders;
 import com.macaela.api.models.user.User;
 
 import jakarta.persistence.Column;
@@ -12,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -59,4 +64,8 @@ public class Product {
     public void setUserId(User userId) {
         this.userId = userId;
     }
+
+    @OneToMany(mappedBy = "productId")
+    @JsonManagedReference
+    private Set<Orders> orders = new HashSet<>();
 }
