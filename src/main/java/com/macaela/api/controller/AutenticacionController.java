@@ -39,7 +39,7 @@ public class AutenticacionController {
     @Autowired
     private UserRepository userRepository; 
 
-    @PostMapping("/signup") // Endpoint para registro de usuarios
+    @PostMapping("/signup") 
     public ResponseEntity registrarUsuario(@RequestBody @Valid DatosRegistroUsuario datosRegistroUsuario) {
         // Verifica si el correo ya está registrado
         if (userRepository.existsByEmail(datosRegistroUsuario.getEmail())) {

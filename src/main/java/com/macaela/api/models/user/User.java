@@ -56,8 +56,7 @@ public class User implements UserDetails {
 	@Column(name = "customer_name_page")
 	private String namePage;
 
-<<<<<<< HEAD
-=======
+
 	
 	
 	public int getAge() {
@@ -84,7 +83,7 @@ public class User implements UserDetails {
 		this.fullname = fullname;
 	}
 
->>>>>>> a750f03 (validacion de usuarios y jwt)
+
 	public String getEmail() {
 		return email;
 	}
@@ -135,6 +134,10 @@ public class User implements UserDetails {
 	    this.password = datosRegistroUsuario.getPassword();
 	    this.age = datosRegistroUsuario.getAge();
 	    this.administrator = datosRegistroUsuario.isAdministrator();
+	}
+
+	public User() {
+		
 	}
 
 	public Long getId() {
