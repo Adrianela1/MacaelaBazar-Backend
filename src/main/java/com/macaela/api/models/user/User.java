@@ -56,8 +56,6 @@ public class User implements UserDetails {
 	@Column(name = "customer_name_page")
 	private String namePage;
 
-	
-	
 	public String getEmail() {
 		return email;
 	}
@@ -112,10 +110,6 @@ public class User implements UserDetails {
 
 	}
 
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Long getId() {
 		return this.id;
 	}
@@ -149,25 +143,25 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isAccountNonExpired() {
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		
+
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		
+
 		return true;
 	}
 
