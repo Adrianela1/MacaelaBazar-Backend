@@ -21,6 +21,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import com.macaela.api.models.order.Orders;
 import com.macaela.api.models.product.Product;
 
 @Table(name = "users")
@@ -99,6 +101,9 @@ public class User implements UserDetails {
 	// Relaciones
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
+
+	@OneToMany(mappedBy = "order_id")
+	private Set<Orders> orders = new HashSet<>();
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
 		this.fullname = datosRegistroUsuario.name();
