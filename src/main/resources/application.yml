@@ -10,7 +10,7 @@ spring:
 
         password: Pa$$w0rd
 
- server:
+server:
   error:
     include-stacktrace: never
 api:
