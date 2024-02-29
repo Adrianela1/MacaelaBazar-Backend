@@ -22,6 +22,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.macaela.api.models.order.Orders;
 import com.macaela.api.models.product.Product;
 
@@ -102,7 +103,8 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "userId")
 	private Set<Product> products = new HashSet<>();
 
-	@OneToMany(mappedBy = "order_id")
+	@OneToMany(mappedBy = "userId")
+	@JsonManagedReference
 	private Set<Orders> orders = new HashSet<>();
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {

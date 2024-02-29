@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.macaela.api.models.order.Orders;
 import com.macaela.api.models.user.User;
 
@@ -64,6 +65,7 @@ public class Product {
         this.userId = userId;
     }
 
-    @OneToMany(mappedBy = "order_id")
+    @OneToMany(mappedBy = "productId")
+    @JsonManagedReference
     private Set<Orders> orders = new HashSet<>();
 }

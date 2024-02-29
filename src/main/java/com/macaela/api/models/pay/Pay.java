@@ -3,6 +3,7 @@ package com.macaela.api.models.pay;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.macaela.api.models.order.Orders;
 
 import jakarta.persistence.Column;
@@ -50,7 +51,12 @@ public class Pay {
 
 	}
 
+	public void setPayId(Long id) {
+		this.id = id;
+	}
+
 	// Relaciones
 	@OneToMany(mappedBy = "order_id")
+	@JsonManagedReference
 	private Set<Orders> orders = new HashSet<>();
 }
