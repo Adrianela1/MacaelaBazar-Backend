@@ -41,7 +41,13 @@ public class Pay {
 	private String bankNumber;
 
 	@Column(name = "cvv")
-	private int cvv;
+	private int cvv; 
+	
+	
+
+	public Pay() {
+		super();
+	}
 
 	public Pay(DatosRegistroPago datosRegistroPago) {
 		this.bankNumber = datosRegistroPago.numeroDeLaTarjeta();

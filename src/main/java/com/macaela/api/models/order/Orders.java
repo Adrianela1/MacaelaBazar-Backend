@@ -78,4 +78,58 @@ public class Orders {
         this.productId = product;
     }
 
+	public Long getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(Long order_id) {
+		this.order_id = order_id;
+	}
+
+	public boolean isOrder_status() {
+		return order_status;
+	}
+
+	public void setOrder_status(boolean order_status) {
+		this.order_status = order_status;
+	}
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public PlaceDelivery getPlaceDeliveryId() {
+		return placeDeliveryId;
+	}
+
+	public void setPlaceDeliveryId(PlaceDelivery placeDeliveryId) {
+		this.placeDeliveryId = placeDeliveryId;
+	}
+
+	public Pay getPayId() {
+		return payId;
+	}
+
+	public void setPayId(Pay payId) {
+		this.payId = payId;
+	}
+
+	public Product getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Product productId) {
+		this.productId = productId;
+	}
+
+	public User getUserId() {
+		return userId;
+	}
+
+	
+
 }

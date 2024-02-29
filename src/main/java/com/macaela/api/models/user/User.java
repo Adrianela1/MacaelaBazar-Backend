@@ -59,6 +59,12 @@ public class User implements UserDetails {
 	@Column(name = "customer_name_page")
 	private String namePage;
 
+	
+	
+	public User() {
+		super();
+	}
+
 	public String getEmail() {
 		return email;
 	}

@@ -7,7 +7,7 @@ spring:
 
         username: root
 
-        password: minimei13
+        password: Pa$$w0rd
 # server:
 #   error:
 #    include-stacktrace: never

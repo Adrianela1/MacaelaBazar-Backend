@@ -49,6 +49,13 @@ public class PlaceDelivery {
 	@Column(name = "station_delivery")
 	private String station;
 
+	
+	
+	
+	public PlaceDelivery() {
+		super();
+	}
+
 	public PlaceDelivery(DatosPlaceDelivery datosPlaceDelivery) {
 
 		this.fecha = datosPlaceDelivery.fecha();
