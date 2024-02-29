@@ -64,6 +64,8 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
     }
+    
+    
 
     // Endpoint para obtener todos los productos
     @GetMapping("/all")

@@ -15,17 +15,19 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfigurations {
 	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-			return httpSecurity.csrf(csrf -> csrf.disable()).sessionManagement(management -> management
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)).build();
-	}
 	
 	@Bean
 	public AuthenticationManager authenticactionManager(AuthenticationConfiguration authenticationConfiguration) 
 			throws Exception {
 		return  authenticationConfiguration.getAuthenticationManager();
 	}
+	
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+			return httpSecurity.csrf(csrf -> csrf.disable()).sessionManagement(management -> management
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)).build();
+	}
+	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {

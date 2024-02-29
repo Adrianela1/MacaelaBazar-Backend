@@ -56,6 +56,35 @@ public class User implements UserDetails {
 	@Column(name = "customer_name_page")
 	private String namePage;
 
+<<<<<<< HEAD
+=======
+	
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public boolean isAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(boolean administrator) {
+		this.administrator = administrator;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+>>>>>>> a750f03 (validacion de usuarios y jwt)
 	public String getEmail() {
 		return email;
 	}
@@ -101,13 +130,11 @@ public class User implements UserDetails {
 	private Set<Product> products = new HashSet<>();
 
 	public User(DatosRegistroUsuario datosRegistroUsuario) {
-		this.fullname = datosRegistroUsuario.name();
-		this.email = datosRegistroUsuario.email();
-		this.password = datosRegistroUsuario.password();
-		this.password = datosRegistroUsuario.password2();
-		this.age = datosRegistroUsuario.age();
-		this.administrator = datosRegistroUsuario.administrator();
-
+	    this.fullname = datosRegistroUsuario.getName();
+	    this.email = datosRegistroUsuario.getEmail();
+	    this.password = datosRegistroUsuario.getPassword();
+	    this.age = datosRegistroUsuario.getAge();
+	    this.administrator = datosRegistroUsuario.isAdministrator();
 	}
 
 	public Long getId() {
@@ -164,5 +191,7 @@ public class User implements UserDetails {
 
 		return true;
 	}
+
+
 
 }
