@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${MYSQLHOST}:${MYSQLPORT}/${MYSQL_DATABASE}/${JWT_SECRET}
+    url: jdbc:postgresql://${MYSQLHOST}:${MYSQLPORT}/${MYSQL_DATABASE}
     username: ${MYSQLUSER}
     password: ${MYSQLPASSWORD}
   jpa:
