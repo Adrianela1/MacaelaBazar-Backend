@@ -8,7 +8,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 logging:
   level:
     org.hibernate.SQL: DEBUG
