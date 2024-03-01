@@ -44,8 +44,10 @@ public class User implements UserDetails {
 	private String email;
 	@Column(name = "customer_password")
 	private String password;
-	@Column(name = "customer_age")
+	@Column(name = "costumer_age")
 	private int age;
+	@Column(name = "profile_picture")
+	private String profilePicture;
 	@Column(name = "is_administrator")
 	private boolean administrator;
 	@Column(name = "customer_banner")
@@ -61,6 +63,15 @@ public class User implements UserDetails {
 	public User() {
 		super();
 	}
+
+	public int getProfilePicture() {
+		return profilePicture;
+	}
+
+	public int setProfilePicture() {
+	return profilePicture;
+	}
+
 
 	public int getAge() {
 		return age;
@@ -151,6 +162,9 @@ public class User implements UserDetails {
 	}
 
 	public void actualizarPagina(DatosRegistroPagina datosRegistroPagina) {
+		if (datosRegistroPagina.profilePicutre() != null) {
+			this.profilePicutre = datosRegistroPagina.profilePicture();
+		}
 		if (datosRegistroPagina.banner() != null) {
 			this.banner = datosRegistroPagina.banner();
 		}
