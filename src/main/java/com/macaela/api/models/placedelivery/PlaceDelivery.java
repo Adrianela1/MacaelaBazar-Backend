@@ -22,10 +22,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "place_delivery")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class PlaceDelivery {
 
 	@Id

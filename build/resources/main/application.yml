@@ -1,0 +1,20 @@
+        
+spring:
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+        url: jdbc:mysql://127.0.0.1:3306/macaela
+
+        username: root
+
+        password: Pa$$w0rd
+
+server:
+  error:
+    include-stacktrace: never
+api:
+  security:
+    secret: ${JWT_SECRET}
+
+

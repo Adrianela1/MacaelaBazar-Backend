@@ -79,7 +79,8 @@ public class ProductController {
         return ResponseEntity.ok(productDTOs);
     }
 
-    @DeleteMapping("/{id}")
+    @SuppressWarnings("unlikely-arg-type")
+	@DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id) {
         try {
             Optional<Product> optionalProduct = productRepository.findById(id);

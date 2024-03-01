@@ -24,14 +24,12 @@ import lombok.Setter;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.macaela.api.models.order.Orders;
+import com.macaela.api.models.product.DatosObtenerProductos;
 import com.macaela.api.models.product.Product;
 
 @Table(name = "users")
 @Entity(name = "User")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 // @EqualsAndHashCode(of = "id")
 public class User implements UserDetails {
 
@@ -146,9 +144,7 @@ public class User implements UserDetails {
 	    this.administrator = datosRegistroUsuario.isAdministrator();
 	}
 
-	public User() {
-		
-	}
+	
 
 	public Long getId() {
 		return this.id;
@@ -203,6 +199,11 @@ public class User implements UserDetails {
 	public boolean isEnabled() {
 
 		return true;
+	}
+
+	public List<DatosObtenerProductos> getProducts() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

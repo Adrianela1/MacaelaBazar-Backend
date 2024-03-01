@@ -20,10 +20,7 @@ import lombok.Setter;
 
 @Table(name = "pay")
 @Entity(name = "Pay")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Pay {
 
 	@Id
@@ -47,6 +44,16 @@ public class Pay {
 
 	public Pay() {
 		super();
+	}
+
+	public Pay(Long id, String dueDate, String fullName, String bankNumber, int cvv, Set<Orders> orders) {
+		super();
+		this.id = id;
+		this.dueDate = dueDate;
+		this.fullName = fullName;
+		this.bankNumber = bankNumber;
+		this.cvv = cvv;
+		this.orders = orders;
 	}
 
 	public Pay(DatosRegistroPago datosRegistroPago) {
