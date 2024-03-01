@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${MYSQLHOST}:${MYSQLPORT}/${MYSQL_DATABASE}/${JWT_SECRET}
-    username: ${MYSQLUSER}
-    password: ${MYSQLPASSWORD}
+    url: jdbc:postgresql://${{PROD_DB_HOSTNAME}}:${{PROD_DB_PORT}}/${{PROD_DB_NAME}}
+    username: ${{PROD_DB_USERNAME}}
+    password: ${{PROD_DB_PASSWORD}}
   jpa:
     properties:
       hibernate:
@@ -18,4 +18,4 @@ server:
     include-stacktrace: never
 api:
   security:
-    secret: ${JWT_SECRET}
+    secret: ${{JWT_SECRET}}
