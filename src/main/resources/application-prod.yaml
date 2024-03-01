@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${MYSQLHOST}:${MYSQLPORT}/${MYSQL_DATABASE}/${JWT_SECRET}
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+server:
+  error:
+    include-stacktrace: never
+api:
+  security:
+    secret: ${JWT_SECRET}
