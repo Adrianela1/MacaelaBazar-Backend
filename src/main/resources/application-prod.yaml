@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${PROD_DB_HOSTNAME}:${PROD_DB_PORT}/${PROD_DB_NAME}/${JWT_SECRET}
-    username: ${PROD_DB_USERNAME}
-    password: ${PROD_DB_PASSWORD}
+    url: jdbc:postgresql://${MYSQLHOST}:${MYSQLPORT}/${MYSQL_DATABASE}/${JWT_SECRET}
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
   jpa:
     properties:
       hibernate:
